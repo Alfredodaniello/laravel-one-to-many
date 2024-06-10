@@ -19,6 +19,13 @@
           <label for="title" class="form-label">Titolo</label>
           <input type="text" class="form-control" id="title" name="title" value="{{old('title')}}">
         </div>
+        <label for="type_id" class="form-label">Type</label>
+        <select class="form-select mb-2" aria-label="Default select example" name="type_id" id="type_id">
+            <option selected>Scegli la tipologia:</option>
+            @foreach ($types as $type)
+                <option value="{{$type->id}}">{{$type->name}}</option>
+            @endforeach
+        </select>
         <div class="mb-3">
             <label for="client_name" class="form-label">Client name</label>
             <input type="text" class="form-control" id="client_name" name="client_name" value="{{old('client_name')}}" >
