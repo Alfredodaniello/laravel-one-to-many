@@ -48,7 +48,7 @@ class ProjectController extends Controller
                 'client_name' => 'required|min:5|max:250',
                 'summary' => 'required|min:15',
                 'cover_image' => 'image',
-                'type_id' => 'nullable|exists:type,id'
+                'type_id' => 'nullable|exists:types,id'
             ]
         );
         $formdata = $request->all();
@@ -84,7 +84,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
